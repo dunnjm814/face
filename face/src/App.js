@@ -54,21 +54,23 @@ function App() {
       faceapi.draw.drawDetections(canvasRef.current, resizedDetections)
       faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections)
       faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections)
-    }, 100)
+    }, 500)
   }
 
   return (
     <div className="App">
       <span>{initializing ? "initializing" : "ready"}</span>
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        height={videoHeight}
-        width={videoWidth}
-        onPlay={handleVideoOnPlay}
-      />
-      <canvas ref={canvasRef}  />
+      <div className='wrapper'>
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          height={videoHeight}
+          width={videoWidth}
+          onPlay={handleVideoOnPlay}
+        />
+        <canvas ref={canvasRef} className='canvas' />
+      </div>
     </div>
   );
 }
